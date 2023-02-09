@@ -4,6 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        Random randomGenerator = new Random();
+        int number = randomGenerator.Next(1,101);
+
+        List<string> verses = new List<string>
+        {
+            "And it came to pass",
+            "the house is blue",
+            "the end"
+        };
     }
 }
