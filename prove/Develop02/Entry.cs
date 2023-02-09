@@ -34,7 +34,7 @@ class Entry
     public void Display()
     {
 
-        System.Console.Write($"Date: {_date} - Location: {_location} - Prompt: {_prompt} \n{_response}\n");
+        System.Console.Write($"Date: {_date} - Location: {_location} - Prompt: {_prompt} \n{_response}\n\n");
     }
     public void loadDate(string date)
     {
