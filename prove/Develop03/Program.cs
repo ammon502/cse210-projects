@@ -4,14 +4,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        Random randomGenerator = new Random();
-        int number = randomGenerator.Next(1,101);
-
-        List<string> verses = new List<string>
+        Random rand = new Random();
+        List<string> reference = new List<string>
         {
-            "And it came to pass",
-            "the house is blue",
-            "the end"
+            "Trust in the Lord with all thine heart; and lean not unto thine own understanding.", "In all thy ways acknowledge him, and he shall direct thy paths."
         };
+        
+        Scripture scrip = new Scripture(reference);
+        scrip.Display();        
+        while (scrip.IsAllHidden() == false)
+        {
+            Console.ReadLine();
+            Console.Clear();
+            scrip.HideWords(rand.Next(0,5));
+            scrip.Display();
+        }
     }
 }
