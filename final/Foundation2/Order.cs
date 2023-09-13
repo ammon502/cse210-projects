@@ -1,18 +1,21 @@
 class Order
 {
-    private string _shippingLabel = "";
     private List<Product> _products = new List<Product>();
     private Customer _customer = new Customer();
     private double _totalPrice = 0;
     public Order()
     {
-
+        System.Console.Write("Who is Making this order?: ");
+        _customer.setName(Console.ReadLine());
+        System.Console.Write("Where will this be shppied to? Please Enter you address in this format:\n");
+        System.Console.WriteLine($"Street Address\nCity\nState or Province\nCountry\nEnter each one individually pressing enter after each one:");
+        _customer.setAdd(Console.ReadLine(),Console.ReadLine(),Console.ReadLine(),Console.ReadLine());
     }
     public void addProduct() //adds product to list of products and add price to total price
     {
         Product p = new Product();
         
-        System.Console.Write("What is the prodct name?: ");
+        System.Console.Write("What is the product name?: ");
         p.setName(Console.ReadLine());
 
         System.Console.Write("What is the product ID?: ");
@@ -30,9 +33,9 @@ class Order
     }
     public double calculateOrder() //calculates total cost
     {
-        string country = "";
+        string country = _customer.getCountry();
         double shippingPrice = _customer.shippingLocation(country) + _totalPrice;
-        return _totalPrice;
+        return shippingPrice;
     }
     public string packingLabel() //returns a string will all product names and ID's
     {
@@ -41,12 +44,13 @@ class Order
         foreach(Product p in _products)
         {
             label += $"Item {itemCount}: {p.getPrice()}, {p.getID()}\n";
+            itemCount ++;
         }
         return label;
     }
-    public string shippingLabel()
+    public void shippingLabel()
     {
-        string label = "";
-        label += _customer.
+        System.Console.WriteLine(_customer.getName());
+        _customer.getAddress();
     }
 }

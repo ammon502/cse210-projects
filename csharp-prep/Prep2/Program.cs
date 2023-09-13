@@ -32,15 +32,15 @@ class Program
 
         if (grade >= 60)
         {
-            if (int.Parse(input[1]) >= 7)
+            if ((int)input[1] >= 7)
             {
                 System.Console.WriteLine("+!");
             }
-            else if(int.Parse(input[1]) < 7 && int.Parse(input[1]) > 3)
+            else if((int)input[1] < 7 && (int)input[1] > 3)
             {
                 System.Console.WriteLine("!");
             }
-            else if (int.Parse(input[1]) <= 3)
+            else if ((int)input[1] <= 3)
             {
                 System.Console.WriteLine("-!");
             }
