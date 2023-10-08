@@ -1,11 +1,14 @@
 using System;
+using System.ComponentModel;
 
-class Journal
+public class Journal
 {
     List<Entry> _entries = new List<Entry>();
     public string firstName = "";
     public string lastName = "";
     bool askForName = false;
+    int entryLineCount = 0;
+    int fileLineCount = 0;
     public Journal()
     {
 
@@ -27,40 +30,53 @@ class Journal
         newEntry.getResponse();
         _entries.Add(newEntry);
     }
-    public void LoadFile(string[] readLines)
+    public void LoadFile()
     {
-        foreach (string line in readLines)
+        System.Console.WriteLine("What is the filename?");
+        string _readFileName = Console.ReadLine();
+        string[] _readLines = System.IO.File.ReadAllLines(_readFileName);
+        for (int i = 0; i < 2; i++)
         {
+
             string[] loadingEntries = line.Split("\n");
-            string firstEntry = loadingEntries[0];
-            string[] name = firstEntry.Split(" ");
-            firstName = name[0];
-            lastName = name[1];
-            askForName = true;
-        }
-        foreach (string line in readLines)
-        {
-            string[] loadingEntries = line.Split("\n\n");
-            int i = 0;
-            foreach (string element in loadingEntries)
+            if(askForName == false)
             {
-                Entry newEntry = new Entry();
-                if (i == 0)
-                {
-                    i++;
-                    continue;
-                }
-                string[] getter = element.Split("\n");
-                newEntry.loadDate(getter[0]);
-                newEntry.loadLocation(getter[1]);
-                newEntry.loadPrompt(getter[2]);
-                newEntry.loadResponse(getter[3]);
+                string firstEntry = loadingEntries[0];
+                string[] name = firstEntry.Split(" ");
+                firstName = name[0];
+                lastName = name[1];
+                askForName = true;
+                // loadingEntries = line.Split("\n");
+                continue;
             }
+
+        }
+        for(int i = 2; i < _readLines.Length; i++)
+        {
+            Entry newEntry = new Entry();
+            // string[] getter = line.Split("\n");
+            switch()
+            newEntry.loadDate(getter[0]);
+            newEntry.loadLocation(getter[1]);
+            newEntry.loadPrompt(getter[2]);
+            newEntry.loadResponse(getter[3]);
         }
     }
-    public void writeFile(string filename)
+    public void writeFile()
     {
-        using (StreamWriter outputFile = new StreamWriter(filename))
+
+        System.Console.WriteLine("What is the filename?");
+        string _writeFileName = Console.ReadLine();
+        // string[] _writeLines = System.IO.File.ReadAllLines(_writeFileName);
+
+        // foreach (string line in _writeLines)
+        // {
+            
+        //     string[] parts = line.Split(" ");
+
+        // }
+
+        using (StreamWriter outputFile = new StreamWriter(_writeFileName))
         {
             outputFile.WriteLine($"{firstName} {lastName}");
             outputFile.WriteLine();
