@@ -46,10 +46,10 @@ class Entry
     }
     public void loadPrompt(string prompt)
     {
-        _date = prompt;
+        _prompt = prompt;
     }
     public void loadResponse(string response)
     {
-        _date = response;
+        _response = response;
     }
 }

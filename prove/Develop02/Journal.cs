@@ -7,8 +7,8 @@ public class Journal
     public string firstName = "";
     public string lastName = "";
     bool askForName = false;
-    int entryLineCount = 0;
-    int fileLineCount = 0;
+    // int entryLineCount = 0;
+    // int fileLineCount = 0;
     public Journal()
     {
 
@@ -35,31 +35,35 @@ public class Journal
         System.Console.WriteLine("What is the filename?");
         string _readFileName = Console.ReadLine();
         string[] _readLines = System.IO.File.ReadAllLines(_readFileName);
-        for (int i = 0; i < 2; i++)
-        {
+        string[] name = _readLines[0].Split(" ");
+        askForName = true;
+        firstName = name[0];
+        lastName = name[1];
+        // for (int i = 0; i < 2; i++)
+        // {
 
-            string[] loadingEntries = line.Split("\n");
-            if(askForName == false)
-            {
-                string firstEntry = loadingEntries[0];
-                string[] name = firstEntry.Split(" ");
-                firstName = name[0];
-                lastName = name[1];
-                askForName = true;
-                // loadingEntries = line.Split("\n");
-                continue;
-            }
+        //     string[] loadingEntries = _readLines.Split("\n");
+        //     if(askForName == false)
+        //     {
+        //         string firstEntry = loadingEntries[0];
+        //         string[] name = firstEntry.Split(" ");
+        //         firstName = name[0];
+        //         lastName = name[1];
+        //         askForName = true;
+        //         // loadingEntries = line.Split("\n");
+        //         continue;
+        //     }
 
-        }
-        for(int i = 2; i < _readLines.Length; i++)
+        // }
+        for(int i = 2; i < _readLines.Length; i += 5)
         {
             Entry newEntry = new Entry();
             // string[] getter = line.Split("\n");
-            switch()
-            newEntry.loadDate(getter[0]);
-            newEntry.loadLocation(getter[1]);
-            newEntry.loadPrompt(getter[2]);
-            newEntry.loadResponse(getter[3]);
+            newEntry.loadDate(_readLines[i]);
+            newEntry.loadLocation(_readLines[i+1]);
+            newEntry.loadPrompt(_readLines[i+2]);
+            newEntry.loadResponse(_readLines[i+3]);
+            _entries.Add(newEntry);
         }
     }
     public void writeFile()
