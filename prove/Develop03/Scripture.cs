@@ -11,21 +11,23 @@ class Scripture
             newVerse.Display();
         }
     }
-    public void HideWords(int count)
+    
+    public void HideWords(int numWordsToHide)
     {
-        Random rand = new Random();
-        int numWordsToHide = rand.Next(0,count);
-        int numTimesRun = 0;
-        while (count > 0 && numTimesRun < 100)
+        // Random rand = new Random();
+        // int numWordsToHide = rand.Next(0,count);
+        foreach (Verse v in _verses)
         {
-            foreach (Verse v in _verses)
-            {
-                int x = v.hideWords(numWordsToHide);
-                count -= numWordsToHide - x;
-                numTimesRun++; //making sure its not infinity, figure 100 is a good num to check with
-            }
+            v.hideWords(numWordsToHide);
+            // numWordsToHide -= x;
+            // numTimesRun++; //making sure its not infinity, figure 100 is a good num to check with
+            // if(IsAllHidden() == true)
+            // {
+            //     return;
+            // }
         }
     }
+
     public bool IsAllHidden()
     {
         // System.Console.WriteLine("hi\n");
@@ -38,6 +40,7 @@ class Scripture
         }
         return true;
     }
+    
     public void Display()
     {
         System.Console.Write($"{refName} ");

@@ -16,7 +16,8 @@ class Program
         {
             Console.ReadLine();
             Console.Clear();
-            scrip.HideWords(rand.Next(0,5));
+            // scrip.HideWords(rand.Next(0,5));
+            scrip.HideWords(3);
             scrip.Display();
         }
     }

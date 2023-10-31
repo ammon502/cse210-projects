@@ -19,7 +19,7 @@ class Verse
 
         // }
         int numWordsHidden = 0;
-        while (IsAllHidden() == false)
+        if (IsAllHidden() == false)
         {
             List <Word> notHidden = new List<Word>();
             Random rand = new Random();

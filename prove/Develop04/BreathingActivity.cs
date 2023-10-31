@@ -15,14 +15,14 @@ class BreathingActivity : Activity
     }
 
     public BreathingActivity(string name, 
-             string desc, 
-             string welcome, 
-             string endding, 
-             int duration) : base(name,
-                                  desc,
-                                  welcome,
-                                  endding,
-                                  duration * 2)
+        string desc, 
+        string welcome, 
+        string endding, 
+        int duration) : base(name,
+                            desc,
+                            welcome,
+                            endding,
+                            duration * 2)
     {
     }    
 
