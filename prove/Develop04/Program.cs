@@ -4,14 +4,27 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop04 World!");
-        Console.Write("\u005C"); // Replace it with the \ character
-        Console.Write("\b\b");
-
-
-
-
-        List<ReflectionActivity> doe = new List<ReflectionActivity>();
-        doe.Add(new ReflectionActivity());
+        bool run = true;
+        Menu menu = new Menu();
+        while(run)
+        {
+            menu.Display();
+            switch(int.Parse(Console.ReadLine()))
+            {
+                case 1:
+                    BreathingActivity breathe = new BreathingActivity(0);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                    
+            }
+            // List<ReflectionActivity> dis = new List<ReflectionActivity>();
+            // dis.Add(new ReflectionActivity(5));
+            // dis[0].DisplayDelay(5);
+        }
     }
 }
