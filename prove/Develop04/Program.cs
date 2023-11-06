@@ -19,6 +19,8 @@ class Program
                 case 3:
                     break;
                 case 4:
+                    run = false;
+                    Console.Clear();
                     break;
                     
             }

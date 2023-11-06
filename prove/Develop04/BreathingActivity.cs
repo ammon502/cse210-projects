@@ -33,7 +33,7 @@ class BreathingActivity : Activity
         Console.Clear();
         System.Console.Write($"{_welcomeMessage}\n\n{_desc}\n\n{_durationMessage}");
         duration = int.Parse(Console.ReadLine())/ 5;
-        System.Console.WriteLine("Get Ready...");
+        GetReady();
         for(int i = 0; i < duration; i++)
         {
             System.Console.Write("Breathe in...5");

@@ -18,22 +18,19 @@ class ReflectionActivity : Activity
         
     }
 
-    public void Reflect()
+    public void Reflect(int duration)
     {
-        System.Console.WriteLine("Get Ready...");
-        DisplayDelay(5);
-        System.Console.WriteLine("Conder the Following Prompt:\n\n");
+        Console.Clear();
+        System.Console.Write($"{_welcomeMessage}\n\n{_desc}\n\n{_durationMessage}");
+        duration = int.Parse(Console.ReadLine())/ 5;
+        GetReady();
+        System.Console.WriteLine("Consider the Following Prompt:\n\n");
         Random random = new Random();
         System.Console.WriteLine(Prompts[random.Next(0,Prompts.Count)]);
         System.Console.WriteLine("\nWhen you have something in mind, press Enter to continue.");
         Console.ReadLine();
-        System.Console.Write("Now ponder on each of the following questions as the are related to this experience.\nYou mag bein in: 3");
-        int delta = 1000;
-        Thread.Sleep(delta);    
-        Console.Write("\b2"); // Erase the + character  
-        Thread.Sleep(delta);  
-        Console.Write("\b1"); // Erase the + character
-        Thread.Sleep(delta);
+        System.Console.Write("Now ponder on each of the following questions as the are related to this experience.\n");
+        BeginIn();
         Console.Clear();
         System.Console.Write("How did you feel whe it was complete? ");
         DisplayDelay(10);

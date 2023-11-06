@@ -9,12 +9,12 @@ class Activity
     protected string _durationMessage = "";
     protected int _duration = 0;
 
-    public Activity()
+    protected Activity()
     {
        // nothing 
     }
 
-    public Activity(string name, 
+    protected Activity(string name, 
              string desc, 
              string welcome, 
              string ending,
@@ -29,13 +29,25 @@ class Activity
         _duration = duration;
     }
 
-    public void Display()
+    protected void Display()
     {
         System.Console.WriteLine(_name);
         System.Console.WriteLine (_desc);
         System.Console.WriteLine(_welcomeMessage);
         System.Console.WriteLine(_endingMessage);
         System.Console.WriteLine(_duration); 
+    }
+
+    protected void BeginIn()
+    {
+        System.Console.Write("\nYou may begin in: ");
+        
+        int delta = 1000;
+        Thread.Sleep(delta);    
+        Console.Write("\b2");
+        Thread.Sleep(delta);  
+        Console.Write("\b1");
+        Thread.Sleep(delta);
     }
 
     protected void DisplayDelay(int delay)
