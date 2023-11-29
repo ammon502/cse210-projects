@@ -3,38 +3,22 @@ using System;
 class BreathingActivity : Activity
 {
 
-    public BreathingActivity(int duration) : base("Breathing Activity", 
-                                      "\nThis activity will help you relax by walking through your breathing in and out slowly. Clear your mind and focus on your breathing.\n",
-                                      "Welcome to the Breathing Activity!",
-                                      $"Well Done!\n\nYou have completed another {duration} seconds of the Breathing Activity",
-                                      "How long in seconds, would you like for your session? ",
+    public BreathingActivity(int duration, string desc, string welcome, string durationmessage) : base("Breathing Activity",
+                                      $"Well Done!\n\nYou have completed another {duration*5} seconds of the Breathing Activity",
                                       duration)
     {
-        
+        _desc = desc; 
+        _welcomeMessage = welcome;
+        _durationMessage = durationmessage;
     }
-
-    public BreathingActivity(string name, 
-        string desc, 
-        string welcome, 
-        string ending, 
-        string durationMessage,
-        int duration) : base(name,
-                            desc,
-                            welcome,
-                            ending,
-                            durationMessage,
-                            duration * 2)
-    {
-        
-    }    
 
     public void Breathe(int duration)
     {
         Console.Clear();
-        System.Console.Write($"{_welcomeMessage}\n\n{_desc}\n\n{_durationMessage}");
-        duration = int.Parse(Console.ReadLine())/ 5;
-        GetReady();
-        for(int i = 0; i < duration; i++)
+        GetWelcome();
+        duration = StartActivity(duration);
+        _duration = duration;
+        for(int i = 0; (i*2) < duration; i++)  // the way duration is calculated, this loop shouldnt run for more than the time input or more then 10 seconds after the time input
         {
             System.Console.Write("Breathe in...5");
             Thread.Sleep(1000);
@@ -46,12 +30,25 @@ class BreathingActivity : Activity
             Thread.Sleep(1000);
             System.Console.Write("\b1");
             Thread.Sleep(1000);
-            System.Console.Write("\b\n\n");
+            System.Console.Write("\b \n");
+            System.Console.Write("Now Breathe out...5");
+            Thread.Sleep(1000);
+            System.Console.Write("\b4");
+            Thread.Sleep(1000);
+            System.Console.Write("\b3");
+            Thread.Sleep(1000);
+            System.Console.Write("\b2");
+            Thread.Sleep(1000);
+            System.Console.Write("\b1");
+            Thread.Sleep(1000);
+            System.Console.Write("\b \n\n");
         }
 
-        System.Console.WriteLine("Well Done!!\n");
+        // System.Console.WriteLine("\nWell Done!!\n");
 
-        System.Console.WriteLine($"You have completed another {duration} seconds of the Breathing Activity.");
+        // System.Console.WriteLine($"You have completed another {duration * 5} seconds of the Breathing Activity.");
+        System.Console.WriteLine($"\n{_endingMessage}");
+
         DisplayDelay(5);
     }
 }

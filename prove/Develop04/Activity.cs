@@ -14,18 +14,12 @@ class Activity
        // nothing 
     }
 
-    protected Activity(string name, 
-             string desc, 
-             string welcome, 
+    protected Activity(string name,
              string ending,
-             string  durationMessage,
              int duration)
     {
         _name = name;
-        _desc = desc; 
-        _welcomeMessage = welcome; 
         _endingMessage = ending;
-        _durationMessage = durationMessage;
         _duration = duration;
     }
 
@@ -40,7 +34,7 @@ class Activity
 
     protected void BeginIn()
     {
-        System.Console.Write("\nYou may begin in: ");
+        System.Console.Write("\nYou may begin in: 3");
         
         int delta = 1000;
         Thread.Sleep(delta);    
@@ -82,13 +76,27 @@ class Activity
             // Console.Write("\b"); // Erase the + character
             Thread.Sleep(delta);  
         }
-        Console.Write("\b");
+        Console.Write("\b ");
     }
 
-    public void GetReady()
+    protected void GetReady()
     {
         System.Console.WriteLine("Get Ready...");
         DisplayDelay(5);
     }
 
+    protected int StartActivity(int duration)
+    {
+        _duration = duration;
+         // Get ready runs for 5 seconds in theory so dividing input by 5 allows it to rung the proper length of time...in theory
+
+        GetReady();
+        Console.Clear();
+        return duration;
+    }
+
+    protected void GetWelcome()
+    {
+        System.Console.WriteLine($"{_welcomeMessage}");
+    }
 }
