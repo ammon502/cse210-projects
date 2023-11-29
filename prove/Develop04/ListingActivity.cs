@@ -22,10 +22,22 @@ class ListingActivity : Activity
         System.Console.WriteLine(Prompts[random.Next(0,Prompts.Count)]);
         
         BeginIn();
+        System.Console.WriteLine("\b \n");
         int inputCount = 0;
         DateTime startTime = DateTime.Now;
-        while (DateTime.Now > startTime.AddSeconds(duration))
+        while (DateTime.Now < startTime.AddSeconds(duration))
         {
+            System.Console.Write("You have ");
+            System.Console.Write(startTime.AddSeconds(duration)-DateTime.Now);
+            System.Console.WriteLine(" seconds left!");
+            if (inputCount == 0)
+            {
+                System.Console.WriteLine("First Response: ");
+            }
+            else
+            {
+                System.Console.WriteLine("Next Response: ");
+            }
             Console.ReadLine();
             inputCount ++;
         }
