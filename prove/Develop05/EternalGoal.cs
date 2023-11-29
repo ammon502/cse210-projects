@@ -12,11 +12,11 @@ class EternalGoal:Goal
 
     public override void isThisComplete()
     {
-        if (_isComplete == false)
+        if (getIsComplete() == false)
         {
             System.Console.Write(" ");
         }
-        if (_isComplete == true)
+        if (getIsComplete() == true)
         {
             System.Console.Write("\u221A");
         }

@@ -1,21 +1,21 @@
 class SimpleGoal : Goal
 {
-    public SimpleGoal(string _goalName, string _goalDescription, int _totalGoalPoints, bool _isComplete)
-    :base(_goalName, _goalDescription, _totalGoalPoints, _isComplete)
+    public SimpleGoal(string name, string description, int totalPoints, bool isComplete)
+    :base(name, description, totalPoints, isComplete)
     {
         
     }
     public override void Display()
     {
-        System.Console.WriteLine($"{_goalName}{_goalDescription}{_totalGoalPoints}");
+        System.Console.WriteLine($"{getCurrentPoints}{getDescription}{getTotalPoints}");
     }
     public override void isThisComplete()
     {
-        if (_isComplete == false)
+        if (getIsComplete() == false)
         {
             System.Console.Write(" ");
         }
-        if (_isComplete == true)
+        if (getIsComplete() == true)
         {
             System.Console.Write("\u221A");
         }
