@@ -48,7 +48,6 @@ class Menu
                 break;
             case 4:
                 run = false;
-                Console.Clear();
                 break;
         }
         return run;
