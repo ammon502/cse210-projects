@@ -7,7 +7,7 @@ class Order
     {
         System.Console.Write("Who is Making this order?: ");
         _customer.setName(Console.ReadLine());
-        System.Console.Write("Where will this be shppied to? Please Enter you address in this format:\n");
+        System.Console.Write("Where will this be shppied to? Please Enter your address in this format:\n");
         System.Console.WriteLine($"Street Address\nCity\nState or Province\nCountry\nEnter each one individually pressing enter after each one:");
         _customer.setAdd(Console.ReadLine(),Console.ReadLine(),Console.ReadLine(),Console.ReadLine());
     }
