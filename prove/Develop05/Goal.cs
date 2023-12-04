@@ -17,27 +17,30 @@ abstract class Goal
     abstract public void isThisComplete();
     
 
-    protected void getName()
+    protected virtual string getName()
     {
-        System.Console.Write($"{_goalName}");
+        return _goalName;
     }
-    protected void getDescription()
+    protected virtual string getDescription()
     {
-        System.Console.Write($"{_goalDescription}");
+        return _goalDescription;
     }
-    protected void getTotalPoints()
+    
+    protected virtual int getTotalPoints()
     {
-        System.Console.Write($"{_totalGoalPoints}");
+        return _totalGoalPoints;
     }
-    protected void getCurrentPoints()
+    
+    protected virtual int getCurrentPoints()
     {
-        System.Console.Write($"{_currentGoalPoints}");
+        return _currentGoalPoints;
     }
-    protected bool getIsComplete()
+    
+    protected virtual bool getIsComplete()
     {
         return _isComplete;
     }
-    protected void setIsComplete(bool x)
+    protected virtual void setIsComplete(bool x)
     {
         _isComplete = x;
     }

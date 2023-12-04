@@ -7,7 +7,7 @@ class SimpleGoal : Goal
     }
     public override void Display()
     {
-        System.Console.WriteLine($"{getCurrentPoints}{getDescription}{getTotalPoints}");
+        System.Console.WriteLine($"{getName()}: {getDescription()}: You have {getCurrentPoints()} points: You can earn up to {getTotalPoints()} points");
     }
     public override void isThisComplete()
     {

@@ -9,8 +9,9 @@ class Video
     {
         for (int i = 0; i < 3; i++)
         {
-            string comment = "";
+            string comment = $"Comment {i}";
             Comment c = new Comment(comment);
+            _comment.Add(c);
         }
     }
 
@@ -19,7 +20,7 @@ class Video
         int count = 1;
         foreach (Comment c in _comment)
         {
-            System.Console.Write($"What is the name of the prson who created comment {count}?: ");
+            System.Console.Write($"What is the name of the person who created comment {count}?: ");
             string name = Console.ReadLine();
             c.setName(name);
             System.Console.Write($"What  will comment {count} say?: ");
@@ -33,6 +34,7 @@ class Video
         int count = 1;
         foreach (Comment c in _comment)
         {
+            System.Console.Write($"Comment {count} written by ");
             c.getContent();
             count ++;
         }

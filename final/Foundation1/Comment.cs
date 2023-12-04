@@ -8,7 +8,7 @@ class Comment
     }
     public void getContent()
     {
-        System.Console.WriteLine($"{_creatorName} said: {_content}");
+        System.Console.WriteLine($"{_creatorName} says: {_content}");
     }
     public void setContent(string content)
     {

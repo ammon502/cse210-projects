@@ -9,15 +9,14 @@ class Program
         int totalPoints = 0;
         while (runProgram)
         {
-            System.Console.WriteLine($"You have {totalPoints} points.");
-            System.Console.WriteLine();
+            System.Console.WriteLine($"You have {totalPoints} points.\n");
             System.Console.WriteLine("Menu Options:");
-            System.Console.WriteLine("/t1. Create New Goal");
-            System.Console.WriteLine("/t2. List Goals");
-            System.Console.WriteLine("/t3. Save Goals");
-            System.Console.WriteLine("/t4. Load Goals");
-            System.Console.WriteLine("/t5. Record Event");
-            System.Console.WriteLine("/t6. Quit");
+            System.Console.WriteLine("\t1. Create New Goal");
+            System.Console.WriteLine("\t2. List Goals");
+            System.Console.WriteLine("\t3. Save Goals");
+            System.Console.WriteLine("\t4. Load Goals");
+            System.Console.WriteLine("\t5. Record Event");
+            System.Console.WriteLine("\t6. Quit");
             System.Console.Write("Select a Choice from the menu: ");
             int userInput = Convert.ToInt16(Console.ReadLine());
             
@@ -25,9 +24,9 @@ class Program
             {
                 case 1:
                     System.Console.WriteLine("The types of Goals are:");
-                    System.Console.WriteLine("/t1. Simple Goal");
-                    System.Console.WriteLine("/t2. Eternal Goal");
-                    System.Console.WriteLine("/t3. Checklist Goal");
+                    System.Console.WriteLine("\t1. Simple Goal");
+                    System.Console.WriteLine("\t2. Eternal Goal");
+                    System.Console.WriteLine("\t3. Checklist Goal");
                     System.Console.Write("Which type of goal would you like to create? ");
                     int _goalType = Convert.ToInt16(Console.ReadLine());
                     System.Console.Write("What is the name of your Goal? ");
