@@ -4,7 +4,12 @@ class Reception : Event
     protected string _email = "";
     public Reception()
     {
-
+        System.Console.WriteLine("Will you RSVP? Please enter \"Yes\" or \"No\": ");
+        if(Console.ReadLine() == "Yes")
+        {
+            setRSVP(true);
+            System.Console.WriteLine("What will you email say?");
+        }
     }
     public bool getRSVP()
     {

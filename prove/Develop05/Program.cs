@@ -48,9 +48,11 @@ class Program
                             break;
 
                         case 3:
-                            System.Console.Write("How many times does this goal need to be accomplished for the bonus? ");
+                            System.Console.Write("How many times does this goal need to be accomplished for the bonus?: ");
+                            int _num_times_bonus = Convert.ToInt16(Console.ReadLine());
+                            System.Console.Write("How many points do you get when bonus is reached?: ");
                             int _bonus = Convert.ToInt16(Console.ReadLine());
-                            CheckGoal check = new CheckGoal(_goalName, _goalDescription, _totalGoalPoints, _bonus, false);
+                            CheckGoal check = new CheckGoal(_goalName, _goalDescription, _totalGoalPoints, _num_times_bonus, _bonus, false);
                             _goals.Add(check);
                             break;
                     }
@@ -58,14 +60,21 @@ class Program
 
                 case 2:
                     int count = 1;
+                    int points = 0;
                     foreach (Goal goal in _goals)
                     {
                         System.Console.Write($"{count}. [");
-                        goal.isThisComplete();
+                        goal.IsThisComplete();
                         System.Console.Write("] ");
                         goal.Display();
                         count ++;
-                    } 
+                        points += goal.GetCurrentPoints();
+                    }
+                    System.Console.WriteLine();
+                    if (points != totalPoints)
+                    {
+                        totalPoints = points;
+                    }
                     break;
                 
                 case 3:
@@ -73,9 +82,11 @@ class Program
                     break;
                 
                 case 4:
+
                     break;
                 
                 case 5:
+
                     break;
                 
                 case 6:

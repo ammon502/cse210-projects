@@ -13,31 +13,31 @@ abstract class Event
     {
         return _title;
     }
-    public virtual void setTitle(string title)
+    protected virtual void setTitle(string title)
     {
         _title = title;
     }
-    public virtual string getDescription()
+    protected virtual string getDescription()
     {
         return _description;
     }
-    public virtual void setDescription(string description)
+    protected virtual void setDescription(string description)
     {
         _description = description;
     }
-    public virtual string getDate()
+    protected virtual string getDate()
     {
         return _date;
     }
-    public virtual void setDate(string date)
+    protected virtual void setDate(string date)
     {
         _date = date;
     }
-    public virtual string getTime()
+    protected virtual string getTime()
     {
         return _time;
     }
-    public virtual void setTime(string time)
+    protected virtual void setTime(string time)
     {
         _time = time;
     }

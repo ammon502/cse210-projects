@@ -7,16 +7,16 @@ class EternalGoal:Goal
     }
     public override void Display()
     {
-        
+        System.Console.WriteLine($"{GetName()}: {GetDescription()}: You have {GetCurrentPoints()} points! Keep completing this activity to earn {GetTotalPoints()} points every time!");
     }
 
-    public override void isThisComplete()
+    public override void IsThisComplete()
     {
-        if (getIsComplete() == false)
+        if (GetIsComplete() == false)
         {
             System.Console.Write(" ");
         }
-        if (getIsComplete() == true)
+        if (GetIsComplete() == true)
         {
             System.Console.Write("\u221A");
         }

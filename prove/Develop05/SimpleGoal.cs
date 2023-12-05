@@ -7,15 +7,15 @@ class SimpleGoal : Goal
     }
     public override void Display()
     {
-        System.Console.WriteLine($"{getName()}: {getDescription()}: You have {getCurrentPoints()} points: You can earn up to {getTotalPoints()} points");
+        System.Console.WriteLine($"{GetName()}: {GetDescription()}: You have {GetCurrentPoints()} points: You can earn up to {GetTotalPoints()} points");
     }
-    public override void isThisComplete()
+    public override void IsThisComplete()
     {
-        if (getIsComplete() == false)
+        if (GetIsComplete() == false)
         {
             System.Console.Write(" ");
         }
-        if (getIsComplete() == true)
+        if (GetIsComplete() == true)
         {
             System.Console.Write("\u221A");
         }

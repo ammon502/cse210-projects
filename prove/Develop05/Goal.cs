@@ -1,10 +1,12 @@
+using System.Security.Cryptography;
+
 abstract class Goal
 {
-    private bool _isComplete = false;
-    private string _goalName = "";
-    private string _goalDescription = "";
-    private int _totalGoalPoints = 0;
-    private int _currentGoalPoints = 0;
+    protected bool _isComplete = false;
+    protected string _goalName = "";
+    protected string _goalDescription = "";
+    protected int _totalGoalPoints = 0;
+    protected int _currentGoalPoints = 0;
 
     protected Goal(string name, string description, int totalPoints, bool isComplete)
     {
@@ -14,35 +16,40 @@ abstract class Goal
         _goalName = name;
     }
     abstract public void Display();
-    abstract public void isThisComplete();
+    abstract public void IsThisComplete();
     
 
-    protected virtual string getName()
+    protected virtual string GetName()
     {
         return _goalName;
     }
-    protected virtual string getDescription()
+    protected virtual string GetDescription()
     {
         return _goalDescription;
     }
     
-    protected virtual int getTotalPoints()
+    public virtual int GetTotalPoints()
     {
         return _totalGoalPoints;
     }
     
-    protected virtual int getCurrentPoints()
+    public virtual int GetCurrentPoints()
     {
         return _currentGoalPoints;
     }
     
-    protected virtual bool getIsComplete()
+    protected virtual bool GetIsComplete()
     {
         return _isComplete;
     }
-    protected virtual void setIsComplete(bool x)
+    protected virtual void SetIsComplete(bool x)
     {
         _isComplete = x;
     }
+    public virtual void CompleteGoal()
+    {
+        _currentGoalPoints += _totalGoalPoints;
+    }
+    
 
 } 
