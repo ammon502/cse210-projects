@@ -7,6 +7,7 @@ abstract class Goal
     protected string _goalDescription = "";
     protected int _totalGoalPoints = 0;
     protected int _currentGoalPoints = 0;
+    protected int _goalType = 0;
 
     protected Goal(string name, string description, int totalPoints, bool isComplete)
     {
@@ -38,7 +39,7 @@ abstract class Goal
         return _currentGoalPoints;
     }
     
-    protected virtual bool GetIsComplete()
+    public virtual bool GetIsComplete()
     {
         return _isComplete;
     }
@@ -50,6 +51,34 @@ abstract class Goal
     {
         _currentGoalPoints += _totalGoalPoints;
     }
-    
 
+    public virtual void RecordEvent()
+    {
+        _currentGoalPoints += _totalGoalPoints;
+        if (_goalType == 1)
+        {
+        _isComplete = true;
+        }
+        System.Console.WriteLine($"{GetGoalType()} Event Recorded\n");
+
+    }
+
+    public virtual string GetGoalType()
+    {
+        if (_goalType == 1)
+        {
+            return "Simple Goal";
+        }
+
+        if (_goalType == 2)
+        {
+            return "Eternal Goal";
+        }
+
+        if (_goalType == 3)
+        {
+            return "Checklist Goal";
+        }
+        return "base GetGoalType Broke";
+    }
 } 

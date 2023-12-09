@@ -9,6 +9,19 @@ class Program
         int totalPoints = 0;
         while (runProgram)
         {
+            int count = 1;
+            int points = 0;
+            foreach (Goal goal in _goals)
+            {
+                count ++;
+                points += goal.GetCurrentPoints();
+            }
+            System.Console.WriteLine();
+            if (points != totalPoints)
+            {
+                totalPoints = points;
+            }
+            count = 1;
             System.Console.WriteLine($"You have {totalPoints} points.\n");
             System.Console.WriteLine("Menu Options:");
             System.Console.WriteLine("\t1. Create New Goal");
@@ -59,8 +72,6 @@ class Program
                     break;
 
                 case 2:
-                    int count = 1;
-                    int points = 0;
                     foreach (Goal goal in _goals)
                     {
                         System.Console.Write($"{count}. [");
@@ -86,6 +97,17 @@ class Program
                     break;
                 
                 case 5:
+                    System.Console.Write("What number Goal would you like to complete? plese enter your response a an integer based on the order the goals were entered into the List. ");
+                    int goalNum = Convert.ToInt16(Console.ReadLine());
+                    
+                    if (!_goals[goalNum].GetIsComplete())
+                    {
+                        _goals[goalNum].RecordEvent();
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Goal Completed already. Event Not Recorded. \n");
+                    }
 
                     break;
                 

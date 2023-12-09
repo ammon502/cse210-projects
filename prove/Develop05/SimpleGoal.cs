@@ -3,7 +3,7 @@ class SimpleGoal : Goal
     public SimpleGoal(string name, string description, int totalPoints, bool isComplete)
     :base(name, description, totalPoints, isComplete)
     {
-        
+        _goalType = 1;
     }
     public override void Display()
     {
