@@ -2,13 +2,16 @@ using System.Security.Cryptography;
 
 abstract class Goal
 {
-    protected bool _isComplete = false;
     protected string _goalName = "";
     protected string _goalDescription = "";
-    protected int _totalGoalPoints = 0;
     protected int _currentGoalPoints = 0;
+    protected int _totalGoalPoints = 0;
     protected int _goalType = 0;
-
+    protected bool _isComplete = false;
+    protected int numberUntilBonus = 0;
+    protected int number_of_times_completed = 0;
+    protected int _bonus_points = 0;
+    
     protected Goal(string name, string description, int totalPoints, bool isComplete)
     {
         _isComplete = isComplete;
@@ -20,25 +23,22 @@ abstract class Goal
     abstract public void IsThisComplete();
     
 
-    protected virtual string GetName()
+    public virtual string GetName()
     {
         return _goalName;
     }
-    protected virtual string GetDescription()
+    public virtual string GetDescription()
     {
         return _goalDescription;
     }
-    
     public virtual int GetTotalPoints()
     {
         return _totalGoalPoints;
     }
-    
     public virtual int GetCurrentPoints()
     {
         return _currentGoalPoints;
     }
-    
     public virtual bool GetIsComplete()
     {
         return _isComplete;
@@ -51,10 +51,9 @@ abstract class Goal
     {
         _currentGoalPoints += _totalGoalPoints;
     }
-
     public virtual void RecordEvent()
     {
-        _currentGoalPoints += _totalGoalPoints;
+        CompleteGoal();
         if (_goalType == 1)
         {
         _isComplete = true;
@@ -62,7 +61,6 @@ abstract class Goal
         System.Console.WriteLine($"{GetGoalType()} Event Recorded\n");
 
     }
-
     public virtual string GetGoalType()
     {
         if (_goalType == 1)
@@ -81,4 +79,17 @@ abstract class Goal
         }
         return "base GetGoalType Broke";
     }
+    public int GetBonusPoints()
+    {
+        return _bonus_points;
+    }
+    public int GetNumBonus()
+    {
+        return numberUntilBonus;
+    }
+    public int GetNumComp()
+    {
+        return number_of_times_completed;
+    }
+
 } 

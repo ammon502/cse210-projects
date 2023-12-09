@@ -5,6 +5,14 @@ class EternalGoal:Goal
     {
         _goalType = 2;
     }
+    public EternalGoal(string name, string description, int currentGoalPoints, int totalPoints, bool isComplete)
+    :base(name, description, totalPoints, isComplete)
+    {
+        _goalType = 1;
+        _currentGoalPoints = currentGoalPoints;
+    }
+
+
     public override void Display()
     {
         System.Console.WriteLine($"{GetName()}: {GetDescription()}: You have {GetCurrentPoints()} points! Keep completing this activity to earn {GetTotalPoints()} points every time!");

@@ -1,0 +1,21 @@
+Checklist Goal
+c
+c
+10
+30
+False
+10
+2
+1
+Simple Goal
+s
+s
+0
+10
+False
+Eternal Goal
+e
+e
+0
+10
+False

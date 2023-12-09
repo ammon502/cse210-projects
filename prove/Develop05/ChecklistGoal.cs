@@ -3,9 +3,7 @@ using System.Security.Cryptography;
 
 class CheckGoal:Goal
 {
-    private int numberUntilBonus = 0;
-    private int number_of_times_completed = 0;
-    private int _bonus_points = 0;
+    
     // int this class, total points is used as the points you get for completing it each time incrementally
     public CheckGoal(string name, string description, int _totalPoints, int _numberUntilBonus, int bonus_points, bool _isComplete)
     :base(name, description, _totalPoints, _isComplete)
@@ -13,6 +11,15 @@ class CheckGoal:Goal
         numberUntilBonus = _numberUntilBonus;
         _bonus_points = bonus_points;
         _goalType = 3;
+    }
+    public CheckGoal(string name, string description, int currentGoalPoints, int totalPoints, bool isComplete, int bonusPoints, int numBonus, int numComp)
+    :base(name, description, totalPoints, isComplete)
+    {
+        _goalType = 1;
+        _currentGoalPoints = currentGoalPoints;
+        _bonus_points = bonusPoints;
+        numberUntilBonus = numBonus;
+        number_of_times_completed = numComp;
     }
     public override void Display()
     {
@@ -44,10 +51,6 @@ class CheckGoal:Goal
     //     } 
     // }
 
-    public int GetBonusPoints()
-    {
-        return _bonus_points;
-    }
 
 
     public override void IsThisComplete()
@@ -88,5 +91,4 @@ class CheckGoal:Goal
 
 
     }
-    
 }

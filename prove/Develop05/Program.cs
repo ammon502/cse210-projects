@@ -89,11 +89,79 @@ class Program
                     break;
                 
                 case 3:
-                    
+                    System.Console.WriteLine("What is the filename?");
+                    string _writeFileName = Console.ReadLine();
+
+                    using (StreamWriter outputFile = new StreamWriter(_writeFileName))
+                    {
+                        foreach (Goal goal in _goals)
+                        {
+                            if (goal.GetGoalType() == "Simple Goal")
+                            {
+                                outputFile.WriteLine($"{goal.GetGoalType()}\n{goal.GetName()}\n{goal.GetDescription()}\n{goal.GetCurrentPoints()}\n{goal.GetTotalPoints()}\n{goal.GetIsComplete()}");
+                            }
+                            if (goal.GetGoalType() == "Eternal Goal")
+                            {
+                                outputFile.WriteLine($"{goal.GetGoalType()}\n{goal.GetName()}\n{goal.GetDescription()}\n{goal.GetCurrentPoints()}\n{goal.GetTotalPoints()}\n{goal.GetIsComplete()}");
+                            }
+                            if (goal.GetGoalType() == "Checklist Goal")
+                            {
+                                outputFile.WriteLine($"{goal.GetGoalType()}\n{goal.GetName()}\n{goal.GetDescription()}\n{goal.GetCurrentPoints()}\n{goal.GetTotalPoints()}\n{goal.GetIsComplete()}\n{goal.GetBonusPoints()}\n{goal.GetNumBonus()}\n{goal.GetNumComp()}");
+                            }
+                            
+                        }
+                    }
                     break;
                 
                 case 4:
+                    System.Console.WriteLine("What is the filename?");
+                    string _readFileName = Console.ReadLine();
+                    string[] _readLines = System.IO.File.ReadAllLines(_readFileName);
+                    for(int i = 0; i < _readLines.Length; /*increment i in each individual case*/)
+                    {
+                        string goalType = _readLines[i];
+                        switch(goalType)
+                        {
+                            case "Simple Goal":
 
+                                // outputFile.WriteLine($"{goal.GetGoalType()}\n{goal.GetName()}\n{goal.GetDescription()}\n{goal.GetCurrentPoints()}\n{goal.GetTotalPoints()}\n{goal.GetIsComplete()}")
+
+                                string s_goalName = _readLines[i+1];
+                                string s_goalDescription = _readLines[i+2];
+                                int s_CurrentPoints = Convert.ToInt16(_readLines[i+3]);
+                                int s_totalGoalPoints = Convert.ToInt16(_readLines[i+4]);
+                                bool s_isComplete = Convert.ToBoolean(_readLines[i+5]);
+                                i += 6;
+                                SimpleGoal simp = new SimpleGoal(s_goalName, s_goalDescription, s_CurrentPoints, s_totalGoalPoints, s_isComplete);
+                                _goals.Add(simp);
+                                break;
+                            
+                            case "Eternal Goal":
+                                string e_goalName = _readLines[i+1];
+                                string e_goalDescription = _readLines[i+2];
+                                int e_CurrentPoints = Convert.ToInt16(_readLines[i+3]);
+                                int e_totalGoalPoints = Convert.ToInt16(_readLines[i+4]);
+                                bool e_isComplete = Convert.ToBoolean(_readLines[i+5]);
+                                i += 6;
+                                EternalGoal eternal = new EternalGoal(e_goalName, e_goalDescription, e_CurrentPoints, e_totalGoalPoints, e_isComplete);
+                                _goals.Add(eternal);
+                                break;
+
+                            case "Checklist Goal":
+                                string c_goalName = _readLines[i+1];
+                                string c_goalDescription = _readLines[i+2];
+                                int c_CurrentPoints = Convert.ToInt16(_readLines[i+3]);
+                                int c_totalGoalPoints = Convert.ToInt16(_readLines[i+4]);
+                                bool c_isComplete = Convert.ToBoolean(_readLines[i+5]);
+                                int c_BonusPoints = Convert.ToInt16(_readLines[i+6]);
+                                int c_NumBonus = Convert.ToInt16(_readLines[i+7]);
+                                int c_NumComp = Convert.ToInt16(_readLines[i+8]);
+                                i += 9;
+                                CheckGoal check = new CheckGoal(c_goalName, c_goalDescription, c_CurrentPoints, c_totalGoalPoints, c_isComplete, c_BonusPoints, c_NumBonus, c_NumComp);
+                                _goals.Add(check);
+                                break;
+                        }
+                    }
                     break;
                 
                 case 5:
