@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 
 class CheckGoal:Goal
 {
-    
+    bool filereader = false;
     // int this class, total points is used as the points you get for completing it each time incrementally
     public CheckGoal(string name, string description, int _totalPoints, int _numberUntilBonus, int bonus_points, bool _isComplete)
     :base(name, description, _totalPoints, _isComplete)
@@ -20,6 +20,7 @@ class CheckGoal:Goal
         _bonus_points = bonusPoints;
         numberUntilBonus = numBonus;
         number_of_times_completed = numComp;
+        filereader = true;
     }
     public override void Display()
     {
@@ -36,7 +37,14 @@ class CheckGoal:Goal
 
     public override int GetTotalPoints()
     {
-        return (base.GetTotalPoints()*numberUntilBonus)+_bonus_points;
+        if(!filereader)
+        {
+            return (base.GetTotalPoints()*numberUntilBonus)+_bonus_points;
+        }
+        else
+        {
+            return base.GetTotalPoints();
+        }
     }
     
     // public override int GetCurrentPoints()

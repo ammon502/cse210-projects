@@ -114,7 +114,7 @@ class Program
                     break;
                 
                 case 4:
-                    System.Console.WriteLine("What is the filename?");
+                    System.Console.Write("What is the filename?: ");
                     string _readFileName = Console.ReadLine();
                     string[] _readLines = System.IO.File.ReadAllLines(_readFileName);
                     for(int i = 0; i < _readLines.Length; /*increment i in each individual case*/)
