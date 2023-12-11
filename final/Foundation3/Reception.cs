@@ -1,42 +1,48 @@
 class Reception : Event
 {
-    protected bool _RSVP = false;
-    protected string _email = "";
-    public Reception()
+    private bool _RSVP = false;
+    private string _email = "";
+ 
+ 
+ 
+    public Reception(string title, string description, string date, string time, Address address)
+    :base(title, description, date, time, address)
     {
-        System.Console.WriteLine("Will you RSVP? Please enter \"Yes\" or \"No\": ");
+        System.Console.Write("Will you RSVP? Please enter \"Yes\" or \"No\": ");
         if(Console.ReadLine() == "Yes")
         {
-            setRSVP(true);
-            System.Console.WriteLine("What will you email say?");
+            SetRSVP(true);
+            // System.Console.Write("What will your email say?");
+            _email = "L is for the way you look at me. O is for...: L.O.V.E song sung by Frank Sinatra";
+
         }
+        else
+        {
+            // _email = "Dear Alfalfa, I hate you stinking guts! You are the Scum Between my toes! - Darla, The Little Rascals";
+        }
+        
+        _type = "Reception";
     }
-    public bool getRSVP()
+    public bool GetRSVP()
     {
         return _RSVP;
     }
-    public void setRSVP(bool RSVP)
+    public void SetRSVP(bool RSVP)
     {
         _RSVP = RSVP;
     }
-    public string getEmail()
+    public string GetEmail()
     {
         return _email;
     }
-    public void setEmail(string email)
+    public void SetEmail(string email)
     {
         _email = email;
     }
     public override void FullDetails()
     {
-        System.Console.WriteLine($"{_title}\n{_description}\n{_date}\n{_time}\n{_address.getFullAddress()}\n{_email}");
+        System.Console.WriteLine($"{GetTitle()}\n{GetDescription()}\n{GetDate()}\n{GetTime()}\n{_address.GetFullAddress()}\n{GetEmail()}\n");
     }
-    public override void StandardDetails()
-    {
-        System.Console.WriteLine($"{_title}\n{_description}\n{_date}\n{_time}\n{_address.getFullAddress()}");
-    }
-    public override void ShortDetails()
-    {
-        System.Console.WriteLine($"{_title}\n{_description}\n{_date}");
-    }
+    
+    
 }

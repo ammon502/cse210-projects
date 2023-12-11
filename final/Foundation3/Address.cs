@@ -4,44 +4,47 @@ class Address
     private string _city = "";
     private string _stateProv = "";
     private string _country = "";
-    public Address()
+    public Address(string street, string city, string stateProv, string country)
     {
-
+        _streetAdd = street;
+        _city = city;
+        _stateProv = stateProv;
+        _country = country;
     }
-    public string getAdd()
+    public string GetStreet()
     {
         return _streetAdd;
     }
-    public void setAdd(string add)
+    public void SetStreet(string add)
     {
         _streetAdd = add;
     }
-    public string getCity()
+    public string GetCity()
     {
         return _city;
     }
-    public void setCity(string city)
+    public void SetCity(string city)
     {
         _city = city;
     }
-    public string getStateProv()
+    public string GetStateProv()
     {
         return _stateProv;
     }
-    public void setStateProv(string stateProv)
+    public void SetStateProv(string stateProv)
     {
         _stateProv = stateProv;
     }
-    public string getCountry() // the getter already does the function of telling me its in the US or not
+    public string GetCountry() // the getter already does the function of telling me its in the US or not
     {
         return _country;
     }
-    public void setCountry(string country)
+    public void SetCountry(string country)
     {
         _country = country;
     }
-    public string getFullAddress()
+    public string GetFullAddress()
     {
-        return $"{_streetAdd}\n{_city}, {_stateProv}\n{_country}\n";
+        return $"{GetStreet()}\n{GetCity()}, {GetStateProv()}\n{GetCountry()}\n";
     }
 }

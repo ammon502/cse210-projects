@@ -43,7 +43,7 @@ class Order
         string label = "";
         foreach(Product p in _products)
         {
-            label += $"Item {itemCount}: {p.getPrice()}, {p.getID()}\n";
+            label += $"{p.getName()}: {p.getPrice()}, {p.getID()}\n";
             itemCount ++;
         }
         return label;

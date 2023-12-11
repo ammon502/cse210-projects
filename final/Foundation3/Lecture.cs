@@ -1,33 +1,38 @@
 class Lecture : Event
 {
-    protected int _capacity = 0;
-    protected string _speaker = "";
+    private int _capacity = 0;
+    private string _speaker = "";
+    private int _attending = 0;
+    public Lecture(string title, string description, string date, string time, Address address, int capacity, string speaker, int attending)
+    :base(title, description, date, time, address)
+    {
+        _capacity = capacity;
+        _speaker = speaker;
+        _attending = attending;
+        _type = "Lecture";
+    }
     public override void FullDetails()
     {
-        System.Console.WriteLine($"{_title}\n{_description}\n{_date}\n{_time}\n{_address.getFullAddress()}\n{_speaker}\nWe can Hold up to {_capacity} people, sign up today!");
+        System.Console.WriteLine($"{GetTitle()}\n{GetDescription()}\n{GetDate()}\n{GetTime()}\n{_address.GetFullAddress()}{GetSpeaker()}\nWe can hold up to {GetCapacity() - GetAttending()} people, sign up today!\n");
     }
-    public override void StandardDetails()
-    {
-        System.Console.WriteLine($"{_title}\n{_description}\n{_date}\n{_time}\n{_address.getFullAddress()}");
-    }
-    public override void ShortDetails()
-    {
-        System.Console.WriteLine($"{_title}\n{_description}\n{_date}");
-    }
-    public int getCapacity()
+    public int GetCapacity()
     {
         return _capacity;
     }
-    public void setCapactity(int capacity)
+    public void SetCapactity(int capacity)
     {
         _capacity = capacity;
     }
-    public string getSpeaker()
+    public string GetSpeaker()
     {
         return _speaker;
     }
-    public void setSpeaker(string speaker)
+    public void SetSpeaker(string speaker)
     {
         _speaker = speaker;
+    }
+    public int GetAttending()
+    {
+        return _attending;
     }
 }
